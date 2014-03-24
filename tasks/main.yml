@@ -1,0 +1,42 @@
+---
+ - name: Download the Ubuntu Plex Media Server package.
+   get_url: url=http://downloads.plexapp.com/plex-media-server/0.9.9.7.429-f80a8d6/plexmediaserver_0.9.9.7.429-f80a8d6_amd64.deb
+            dest=/root/plexmediaserver_0.9.9.7.429-f80a8d6_amd64.deb
+
+ - name: Install the Ubuntu Plex Media Server prerequisites.
+   apt: pkg={{ item }} state=present
+   with_items:
+     - avahi-daemon
+     - avahi-utils
+     - bind9-host
+     - dbus
+     - geoip-database
+     - libapparmor1
+     - libavahi-client3
+     - libavahi-common-data
+     - libavahi-common3
+     - libavahi-core7
+     - libbind9-90
+     - libdaemon0
+     - libdns99
+     - libgeoip1
+     - libglib2.0-0
+     - libglib2.0-data
+     - libisc95
+     - libisccc90
+     - libisccfg90
+     - liblwres90
+     - libnss-mdns
+     - libpam-systemd
+     - libsystemd-daemon0
+     - libsystemd-login0
+     - libxml2
+     - sgml-base
+     - shared-mime-info
+     - systemd-services
+     - systemd-shim
+     - xml-core
+
+ - name: Install the Ubuntu Plex Media Server package.
+   command: dpkg -i /root/plexmediaserver_0.9.9.7.429-f80a8d6_amd64.deb
+            creates=/usr/lib/plexmediaserver
