@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Kyle Johnson
-  description: 
+  description: An Ansible role for installing Plex on a Linux machine.
   license: MIT
   min_ansible_version: 1.2
   #
